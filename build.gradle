@@ -2,13 +2,13 @@
 
 buildscript {
     repositories {
-
-        jcenter()
         google()
+        jcenter()
+        
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.4.2'
-        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.3'
+        classpath 'com.android.tools.build:gradle:3.6.1'
+
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -16,18 +16,17 @@ buildscript {
 
 allprojects {
     repositories {
-
+        google()
         jcenter()
         maven {
-            url "https://maven.google.com"
+            url 'https://jitpack.io'
         }
-        google()
-    }
-    tasks.withType(Javadoc) { // 这一段是为了消除gbk的错�?
-        options{
-            encoding "UTF-8"
-            charSet 'UTF-8'
-            links "http://docs.oracle.com/javase/7/docs/api"
+        flatDir {
+            dirs 'libs'
         }
     }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
 }
