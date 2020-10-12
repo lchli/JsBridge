@@ -83,6 +83,11 @@ public class BridgeWebView extends WebView implements WebViewJavascriptBridge {
         this.setWebChromeClient(mBridgeWebChromeClient);
 	}
 
+	@Override
+	public void setWebChromeClient(WebChromeClient client) {
+		mBridgeWebChromeClient.setWebChromeClient(client);
+	}
+
 	protected BridgeWebViewClient generateBridgeWebViewClient() {
         return new BridgeWebViewClient(this);
     }
